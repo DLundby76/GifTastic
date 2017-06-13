@@ -39,7 +39,7 @@ $( "#new-button-form" ).submit(function(event) {
 function grabGifs(searchTerm){
 	var queryURL = "http://api.giphy.com/v1/gifs/search?q=" +
     	searchTerm + "&api_key=dc6zaTOxFJmzC&limit=10";
-    	
+
 	$.ajax({
       url: queryURL,
       method: "GET"
@@ -80,7 +80,6 @@ function grabGifs(searchTerm){
 }
 
 $("#buttons-container > button").click(function(event){
-	console.log(event)
 	grabGifs(event.currentTarget.innerText)
 })
 	

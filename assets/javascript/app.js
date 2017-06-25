@@ -67,6 +67,9 @@ function grabGifs(searchTerm){
         var resultImage = $("<img>");
         // Setting the src attribute of the image to a property pulled off the result item
         resultImage.attr("src", data[i].images.fixed_height.url);
+        resultImage.attr("data-state", "animate");
+        resultImage.attr("data-animate",data[i].images.fixed_height.url);
+        resultImage.attr("data-still", data[i].images.fixed_height_still.url);
 
         // Appending the paragraph and image tag to the animalDiv
         resultDiv.append(p);
@@ -79,7 +82,8 @@ function grabGifs(searchTerm){
     });
 }
 
-    $("#Gif").on("click", function() {
+       $("#Gif").on("click", "img",
+        function() {
       // The attr jQuery method allows us to get or set the value of any attribute on our HTML element
       var state = $(this).attr("data-state");
       // If the clicked image's state is still, update its src attribute to what its data-animate value is.
